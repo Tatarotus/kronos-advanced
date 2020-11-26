@@ -1,52 +1,24 @@
-const sevenYears: number[][][][] = [];
+const sevenYears: any = [];
 
 // Add years
-for (let i: number = 0; i <= 6; i += 1) {
+console.time();
+for (let year: number = 0; year <= 6; year += 1) {
   sevenYears.push([]);
-  // Add months
-  for (let j: number = 0; j < 12; j += 1) {
-    sevenYears[i].push([]);
-    // Add days
-    if (j < 7) {
-      if (j % 2 === 0) {
-        for (let n: number = 0; n < 31; n += 1) {
-          // Add 31 Days
-          sevenYears[i][j].push([]);
-        }
-      } else {
-        // eslint-disable-next-line no-lonely-if
-        if (j === 1) {
-          if (i % 4 === 0) {
-            for (let n: number = 0; n < 29; n += 1) {
-              // Add feb days
-              sevenYears[i][j].push([]);
-            }
-          } else {
-            for (let n: number = 0; n < 28; n += 1) {
-              // Add feb days
-              sevenYears[i][j].push([]);
-            }
-          }
-        } else {
-          for (let n: number = 0; n < 30; n += 1) {
-            // Add 30 Days
-            sevenYears[i][j].push([]);
-          }
-        }
-      }
-    } else {
-      // eslint-disable-next-line no-lonely-if
-      if (j % 2 === 0) {
-        for (let n: number = 0; n < 30; n += 1) {
-          // Add 31 Days
-          sevenYears[i][j].push([]);
-        }
-      } else {
-        for (let n: number = 0; n < 31; n += 1) {
-          // Add 30 Days
-          sevenYears[i][j].push([]);
+  // Add trimestre
+  for (let tri: number = 0; tri < 4; tri += 1) {
+    sevenYears[year].push([]);
+    // Add months
+    for (let month: number = 0; month < 3; month += 1) {
+      sevenYears[year][tri].push([]);
+      // Add weeks
+      for (let week: number = 0; week < 4; week += 1) {
+        sevenYears[year][tri][month].push([]);
+        // Add days
+        for (let day: number = 0; day < 7; day += 1) {
+          sevenYears[year][tri][month][week].push([]);
         }
       }
     }
   }
 }
+console.timeEnd();
